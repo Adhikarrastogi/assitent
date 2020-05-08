@@ -28,7 +28,6 @@ def wishme():
     speak("i am jarvis. tell me what can i do for you")
 def takeCommand():
 # It takes microphone input from the user and returns string output
-
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
@@ -69,20 +68,16 @@ if __name__ == '__main__':
             webbrowser.open('stackoverflow.com')
         elif 'calculator' in query:
             webbrowser.open("x.com")
-
-
         elif 'play music' in query:
             music_dir = "F:\\audios\\english"
             songs = os.listdir(music_dir)
             print(songs)
             os.startfile(os.path.join(music_dir,songs[random.randint(0,7)]))
-
         elif 'time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"sir, the time is {strTime}")
         elif "jump"  in query: # i wrote this line to play chrome dino game.
             pyautogui.press('up')
-
         elif 'email' in query:
             speak("sir tell me the sender mail address")
             sender_mail = input(takeCommand().lower())
@@ -93,7 +88,6 @@ if __name__ == '__main__':
             message = input(takeCommand().lower())
             try:
                 speak("sir i want you to type your password by your own")
-
                 password=input("enter the password")
                 smtpObj = smtplib.SMTP('gmail.com',587)
                 smtpObj.sendmail(sender_mail,receivers_mail,message)
